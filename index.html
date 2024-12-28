@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="_files/bootstrap.css">
+    <link rel="stylesheet" href="_files/bootstrap-reboot.css">
+</head>
+
+<body>
+    <nav class="navbar justify-content-center bg-info text-primary fs-4">
+        Rock Paper Scissors.
+    </nav>
+
+    <section>
+        <div class="text-center mt-5 form-floating justify-content-center">
+            <input class="w-25 text-center form-control" type="text" id="sec" name="u_choice" placeholder="">
+            <label for="sec">Enter your choice (Rock, Paper, Scissors)</label>
+            <button class="btn btn-info" type="submit" onclick="Play()">Play</button>
+        </div>
+        <div class="justify-content-start p-3">
+            <span class="text-center">Your Choice</span><br>
+            <span id="U_choice"></span>
+        </div>
+        <div class="justify-content-end p-3">
+            <span class="text-center">Computer Choice</span><br>
+            <span id="C_choice"></span>
+        </div>
+        <p class="ms-5 text-primary fs-3">Result</p>
+        <div class="bg-light p-5 justify-content-end text-center w-25 text-center">
+            <p id="div">Nothing has been chosen</p>
+        </div>
+        <script type="text/javascript">
+            Play = () => {
+                var A = sec.value;
+                const C = ['Rock', 'Paper', 'Scissors'];
+                var B = C[Math.floor(Math.random() * C.length)];
+                // var B = C.toString();
+                // var B = toString(C);
+                // var B = C.toString().random ;
+                // B = Text(X);
+                U_choice.innerHTML = (A);
+                C_choice.innerHTML = (B);
+
+                if (A == B) {
+                    div.innerHTML = ("Both you and the computer selected " + B + ". It's a tie!")
+                }
+
+                else if (A == 'Rock') {
+                    if (B == 'Scissors') {
+                        div.innerHTML = (A + " smashes " + B + ". You win!")
+                    }
+                    if (B == 'Paper') {
+                        div.innerHTML = (B + " covers " + A + " . You lose! ")
+                    }
+                }
+
+                else if (A == 'Paper') {
+                    if (B == 'Rock') {
+                        div.innerHTML = (A + " covers " + B + ". You win!")
+                    }
+                    if (B == "Scissors") {
+                        div.innerHTML = (B + " cuts " + A + ". You lose!")
+                    }
+                }
+
+                else if (A == 'Scissors') {
+                    if (B == 'Paper') {
+                        div.innerHTML = (A + " cuts " + B + ". You win!")
+                    }
+                    if (B == 'Rock') {
+                        div.innerHTML = (B + " smashes " + A + ". You lose!")
+                    }
+                }
+                else if (A == '') {
+                    div.innerHTML = ("Nothing has been chosen")
+                    U_choice.innerHTML = (" ");
+                    C_choice.innerHTML = (" ");
+                }
+
+                else {
+                    div.innerHTML = (A + " is not an option.")
+                }
+
+            }
+        </script>
+        </div>
+    </section>
+
+</body>
+
+</html>
